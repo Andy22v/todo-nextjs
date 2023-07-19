@@ -1,5 +1,6 @@
+// import { stateContext } from "@/state/context";
+// import { useContext } from "react";
 import Head from "next/head";
-import { initialState, stateContext } from "@/state/context";
 import styles from "@/styles/Home.module.css";
 import TodoList from "@/components/todoList";
 
@@ -12,11 +13,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <stateContext.Provider value={initialState}>
+      <div>
         <main className={styles.Home}>
           <TodoList />
         </main>
-      </stateContext.Provider>
+      </div>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  return {
+    props: {},
+  };
 }
